@@ -6,6 +6,7 @@ export default function App({ Component, pageProps }) {
   const { data } = useSWR(`https://example-apis.vercel.app/api/art`, (URL) =>
     fetch(URL).then((res) => res.json())
   );
+
   if (!data) {
     return null;
   }
@@ -14,11 +15,8 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} />
-      <Spotlight
-        image={randomPicture.imageSource}
-        artist={randomPicture.artist}
-      />
+      <Component {...pageProps} 
+      pieces={data}/>
     </>
   );
 }
