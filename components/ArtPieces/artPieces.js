@@ -1,7 +1,7 @@
 import ArtPiecePreview from "../ArtPiecePreview/artPiecePreview";
 import Link from "next/link";
 
-export default function ArtPieces({ pieces }) {
+export default function ArtPieces({ pieces, onToggleFavorite }) {
   return (
     <ul>
         {pieces.map((piece) => (
@@ -11,8 +11,8 @@ export default function ArtPieces({ pieces }) {
           slug={piece.slug}
             title={piece.name}
             image={piece.imageSource}
-
             artist={piece.artist}
+            onToggleFavorite={onToggleFavorite}
           />
            </li>
         ))}
