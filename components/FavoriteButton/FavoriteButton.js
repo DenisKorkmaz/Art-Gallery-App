@@ -13,7 +13,7 @@ export default function FavoriteButton({ isFavorite, onToggleFavorite, slug }) {
     type="button"
     aria-label={isFavorite ? "unlike" : "like"}
     /* onClick={toggleColor} */
-    onClick={() => onToggleFavorite(slug)}>{isFavorite === false ? <HeartLike /> : <HeartUnlike />}</button>
+    onClick={() => onToggleFavorite(slug)}>{isFavorite === true ? <HeartLike /> : <HeartUnlike />}</button>
     </>
   );
 }
