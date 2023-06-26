@@ -1,4 +1,5 @@
 import Spotlight from "../components/Spotlight/Spotlight";
+import Favourites from "./favourites";
 
 export default function SpotlightPage({pieces}) {
   
@@ -14,6 +15,7 @@ export default function SpotlightPage({pieces}) {
         image={randomPicture.imageSource}
         artist={randomPicture.artist}
       />
+      <Favourites/>
     </div>
   );
 }

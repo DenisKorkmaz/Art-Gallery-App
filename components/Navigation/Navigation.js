@@ -24,6 +24,7 @@ export default function Navigation() {
         <NavLink>
           <Link href="/">Spotlight</Link>
           <Link href="/art-pieces">Art Pieces</Link>
+          <Link href="/Favourites">Favourites</Link>
         </NavLink>
       </nav>
     </>
