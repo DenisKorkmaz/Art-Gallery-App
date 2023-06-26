@@ -1,7 +1,9 @@
 import ArtPieces from "@/components/ArtPieces/artPieces";
 
-export default function ArtPiecesPage ({pieces}) {
+export default function ArtPiecesPage ({pieces, artPiecesInfo}) {
     return (
-        <ArtPieces pieces={pieces} />
+        <ArtPieces 
+        pieces={pieces}
+        artPiecesInfo={artPiecesInfo} />
     )
 }

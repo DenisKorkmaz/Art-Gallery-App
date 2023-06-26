@@ -1,6 +1,6 @@
 import Spotlight from "../components/Spotlight/Spotlight";
 
-export default function SpotlightPage({pieces}) {
+export default function SpotlightPage({pieces, artPiecesInfo}) {
   
   const randomPicture = pieces[Math.floor(Math.random() * pieces.length)];
 

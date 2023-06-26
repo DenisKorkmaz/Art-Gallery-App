@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "../components/Layout/Layout";
+import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
 
@@ -11,13 +12,17 @@ export default function App({ Component, pageProps }) {
   if (!data) {
     return null;
   }
-  console.log(data);
+  /* console.log(data); */
+
+  const [artPiecesInfo, setArtPiecesInfo] = useState();
 
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} 
-      pieces={data}/>
+      <Component 
+      {...pageProps} 
+      pieces={data}
+      artPiecesInfo={artPiecesInfo}/>
       <Layout/>
     </>
   );
