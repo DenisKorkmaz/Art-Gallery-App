@@ -1,7 +1,7 @@
 import ArtPieces from "@/components/ArtPieces/artPieces";
 
 export default function Favourites(pieces, artPiecesInfo) {
-  const filter = artPieces.filter((artPiece) =>
+  const filter = ArtPieces.filter((artPiece) =>
     artPiecesInfo.find(
       (piece) => piece.slug === artPiece.slug && artPiece.Favourites
     )
@@ -9,5 +9,5 @@ export default function Favourites(pieces, artPiecesInfo) {
 
   console.log(filter);
 
-  return <ArtPieces pieces={filter} artPiecesInfo={artPiecesInfo}/>;
+  return <ArtPieces pieces={filter} artPiecesInfo={artPiecesInfo} />;
 }
