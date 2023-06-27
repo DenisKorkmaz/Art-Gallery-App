@@ -1,10 +1,12 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "../components/Layout/Layout";
-import { useState } from "react";
+import { useImmerLocalStorageState } from "@/public/resources (2)/lib/hook/useImmerLocalStorageState";
 
 export default function App({ Component, pageProps }) {
-  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+  const [artPiecesInfo, setArtPiecesInfo] = useImmerLocalStorageState("art-pieces-info",
+  { defaultValue: [] }
+  );
   const { data } = useSWR(`https://example-apis.vercel.app/api/art`, (URL) =>
     fetch(URL).then((res) => res.json())
   );
