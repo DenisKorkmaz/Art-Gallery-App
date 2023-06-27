@@ -1,8 +1,8 @@
-export default function CommentForm({ onSubmitComment, commentText, slug }) {
+export default function CommentForm({ onSubmitComment }) {
   function handleSubmit(event) {
     event.preventDefault();
     const { comment } = event.target.elements;
-    onSubmitComment(commentText, slug);
+    onSubmitComment(comment.value);
     event.target.reset();
   }
   return (
@@ -11,7 +11,6 @@ export default function CommentForm({ onSubmitComment, commentText, slug }) {
         <label htmlFor="comments">Add your comment:</label>
         <br />
         <textarea
-          value={commentText}
           type="text"
           name="comment"
           rows="4"

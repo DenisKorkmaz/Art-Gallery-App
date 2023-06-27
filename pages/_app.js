@@ -37,8 +37,19 @@ export default function App({ Component, pageProps }) {
     ]);
   }
 
-  function handleComment(slug, comment) {
-    onComment(slug, comment);
+  function handleComment(slug, comments) {
+    const updateArtPiecesInfo = artPiecesInfo.find(
+      (artPiece) => artPiece.slug === slug
+    );
+    if(updateArtPiecesInfo) {
+      setArtPiecesInfo(
+        artPiecesInfo.map((pieceInfo) => {
+          if (pieceInfo.slug === slug) {
+            return pieceInfo.comments
+          }
+        }
+      )
+    }
   }
 
   return (
