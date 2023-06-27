@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import HeartUnlike from './heartUnlike';
 import HeartLike from './heartLike';
 
-export default function FavoriteButton({ initialIsFavorite, onToggleFavorite, slug }) {
+export default function FavoriteButton({ onToggleFavorite, slug }) {
   const [isFavorite, setIsFavorite] = useState("false");
 
   const toggleFavorite = () => {
@@ -20,3 +20,4 @@ export default function FavoriteButton({ initialIsFavorite, onToggleFavorite, sl
     </button>
   );
 }
+
