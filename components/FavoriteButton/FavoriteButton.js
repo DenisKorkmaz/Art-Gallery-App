@@ -1,20 +1,23 @@
-import HeartUnlike from "./heartUnlike";
-import HeartLike from "./heartLike";
-/* import useState from "react";
-import "./FavoriteButton"; */
+import React, { useState } from 'react';
+import HeartUnlike from './heartUnlike';
+import HeartLike from './heartLike';
 
-export default function FavoriteButton({ isFavorite, onToggleFavorite, slug }) {
-  /* const [color, setColor] = useState("fill");
-  const toggleColor = () => {setColor("fill2")}; */
+export default function FavoriteButton({ onToggleFavorite, slug }) {
+  const [isFavorite, setIsFavorite] = useState("false");
+
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+    onToggleFavorite(slug);
+  };
 
   return (
-    <>
     <button
-    type="button"
-    aria-label={isFavorite ? "unlike" : "like"}
-    /* onClick={toggleColor} */
-    onClick={() => onToggleFavorite(slug)}>{isFavorite === false ? <HeartLike /> : <HeartUnlike />}</button>
-    </>
+      type="button"
+      aria-label={isFavorite ? 'unlike' : 'like'}
+      onClick={toggleFavorite}
+    >
+      {isFavorite ? <HeartUnlike /> : <HeartLike />}
+    </button>
   );
 }
 

@@ -4,8 +4,9 @@ import Layout from "../components/Layout/Layout";
 import { useImmerLocalStorageState } from "@/public/resources (2)/lib/hook/useImmerLocalStorageState";
 
 export default function App({ Component, pageProps }) {
-  const [artPiecesInfo, setArtPiecesInfo] = useImmerLocalStorageState("art-pieces-info",
-  { defaultValue: [] }
+  const [artPiecesInfo, setArtPiecesInfo] = useImmerLocalStorageState(
+    "art-pieces-info",
+    { defaultValue: [] }
   );
   const { data } = useSWR(`https://example-apis.vercel.app/api/art`, (URL) =>
     fetch(URL).then((res) => res.json())
@@ -30,7 +31,25 @@ export default function App({ Component, pageProps }) {
         )
       );
     }
-    return setArtPiecesInfo([...artPiecesInfo, { slug: slug, isFavorite: true }]);
+    return setArtPiecesInfo([
+      ...artPiecesInfo,
+      { slug: slug, isFavorite: true },
+    ]);
+  }
+
+  function handleComment(slug, comments) {
+    const updateArtPiecesInfo = artPiecesInfo.find(
+      (artPiece) => artPiece.slug === slug
+    );
+    if(updateArtPiecesInfo) {
+      setArtPiecesInfo(
+        artPiecesInfo.map((pieceInfo) => {
+          if (pieceInfo.slug === slug) {
+            return pieceInfo.comments
+          }
+        }
+      )
+    }
   }
 
   return (
@@ -40,6 +59,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         pieces={data}
         onToggleFavorite={handleToggleFavorite}
+        artPiecesInfo={artPiecesInfo}
       />
       <Layout />
     </>

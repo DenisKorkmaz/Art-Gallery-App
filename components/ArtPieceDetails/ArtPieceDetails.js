@@ -11,7 +11,7 @@ export default function ArtPieceDetails ({imageSource, title, artist, year, genr
             <p> {artist} </p>
             <p> {year} </p>
             <p> {genre} </p>
-            <CommentForm onSubmitComment={onSubmitComment} />
+            <CommentForm onSubmitComment={onSubmitComment}/>
             <BackButton type="button" aria-label="navigate back"> Back
             </BackButton>
             </div>
