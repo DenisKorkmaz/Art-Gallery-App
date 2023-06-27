@@ -28,7 +28,10 @@ export default function App({ Component, pageProps }) {
         )
       );
     }
-    return setArtPiecesInfo([...artPiecesInfo, { slug: slug, isFavorite: true }]);
+    return setArtPiecesInfo([
+      ...artPiecesInfo,
+      { slug: slug, isFavorite: true },
+    ]);
   }
 
   return (
@@ -38,6 +41,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         pieces={data}
         onToggleFavorite={handleToggleFavorite}
+        artPiecesInfo={artPiecesInfo}
       />
       <Layout />
     </>
