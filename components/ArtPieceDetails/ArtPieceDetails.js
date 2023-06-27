@@ -1,6 +1,6 @@
 import BackButton from "../backButton/backButton";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
-import CommentForm from "../CommentForm/commentForm";
+import CommentForm from "../CommentForm/CommentForm";
 
 export default function ArtPieceDetails ({imageSource, title, artist, year, genre, onSubmitComment}){
     return(
@@ -14,7 +14,7 @@ export default function ArtPieceDetails ({imageSource, title, artist, year, genr
             <CommentForm onSubmitComment={onSubmitComment}/>
             <BackButton type="button" aria-label="navigate back"> Back
             </BackButton>
-        </div>
+            </div>
         
     )
 
